@@ -34,7 +34,7 @@ def train_text_model():
 
     # Vectorization
     print("Vectorizing text...")
-    vectorizer = TfidfVectorizer(max_features=2000)
+    vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
     X_vec = vectorizer.fit_transform(X)
 
     # Split Data

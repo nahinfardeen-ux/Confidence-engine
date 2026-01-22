@@ -27,27 +27,28 @@ def load_data(data_path):
                 continue
             
             # Labeling Logic
+            # Labeling Logic
             label = None
-            if "-02-" in file:
-                label = 1 # Confident
-            elif "-06-" in file:
-                label = 0 # Nervous
+            if "-02-" in file or "-03-" in file: 
+                label = 1 # Confident (Calm or Happy)
+            elif "-06-" in file or "-04-" in file:
+                label = 0 # Nervous (Fearful or Sad)
             
             if label is not None:
                 file_path = os.path.join(root, file)
                 try:
-                    # Load audio
-                    y, sr = librosa.load(file_path, duration=DURATION, sr=None)
+                    # Load audio (Fixed sr=22050)
+                    y, sr = librosa.load(file_path, duration=DURATION, sr=22050)
                     
-                    # Pad if shorter than duration (optional, but good for robustness)
-                    # For this specific logic, we are taking the mean, so length consistency strictly involves duration load
-                    # Librosa load with duration truncates. If short, it loads what's there.
+                    # Normalize audio
+                    y = librosa.util.normalize(y)
                     
                     # Extract MFCCs
                     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=N_MFCC)
                     
                     # Take mean across time to get shape (40,)
                     mfccs_mean = np.mean(mfccs.T, axis=0)
+
                     
                     features.append(mfccs_mean)
                     labels.append(label)

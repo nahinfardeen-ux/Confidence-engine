@@ -5,3 +5,9 @@ scikit-learn
 tensorflow
 SpeechRecognition
 pydub
+sounddevice
+scipy
+streamlit
+streamlit-audiorecorder
+vaderSentiment
+tensorflow-macos
