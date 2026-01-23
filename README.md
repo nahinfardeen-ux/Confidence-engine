@@ -13,28 +13,28 @@ It helps users understand *how* they speak (delivery) and *what* they say (conte
 ### How It Works (Logic Flow)
 ```mermaid
 graph TD
-    A[User Audio Input] --> B(Preprocessing & Splitting)
-    B --> C{AI Audio Engine}
-    B --> D{AI Text Engine}
+    A["User Audio Input"] --> B("Preprocessing & Splitting")
+    B --> C{"AI Audio Engine"}
+    B --> D{"AI Text Engine"}
     
     subgraph "Audio Analysis"
-    C --> C1[Tone Model (RAVDESS)]
-    C --> C2[Pitch Stability Check]
-    C --> C3[Fluency/Pause Ratio]
+    C --> C1["Tone Model (RAVDESS)"]
+    C --> C2["Pitch Stability Check"]
+    C --> C3["Fluency/Pause Ratio"]
     end
     
     subgraph "Text Analysis"
-    D --> D1[Speech-to-Text]
-    D1 --> D2[Sentiment (Naive Bayes)]
-    D1 --> D3[Negative Phrase Detection]
-    D1 --> D4[Filler Word Counter]
+    D --> D1["Speech-to-Text"]
+    D1 --> D2["Sentiment (Naive Bayes)"]
+    D1 --> D3["Negative Phrase Detection"]
+    D1 --> D4["Filler Word Counter"]
     end
     
-    C1 --> E[Weighted Scoring]
+    C1 --> E["Weighted Scoring"]
     C3 --> E
     
-    E --> F[Final Confidence Score]
-    F --> G[Dashboard Output]
+    E --> F["Final Confidence Score"]
+    F --> G["Dashboard Output"]
     D2 --> G
     D3 --> G
     
