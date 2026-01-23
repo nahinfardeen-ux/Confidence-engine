@@ -6,6 +6,42 @@ It helps users understand *how* they speak (delivery) and *what* they say (conte
 
 > **⚠️ Note on Accuracy**: This project is currently in active development. The AI models are approximately **60% accurate** at this stage. We are continuously improving the dataset and training logic to enhance precision.
 
+## 🏗️ System Overview
+
+`![Confidence Engine Architecture](docs/images/project_workflow_diagram.png)`
+
+### How It Works (Logic Flow)
+```mermaid
+graph TD
+    A[User Audio Input] --> B(Preprocessing & Splitting)
+    B --> C{AI Audio Engine}
+    B --> D{AI Text Engine}
+    
+    subgraph "Audio Analysis"
+    C --> C1[Tone Model (RAVDESS)]
+    C --> C2[Pitch Stability Check]
+    C --> C3[Fluency/Pause Ratio]
+    end
+    
+    subgraph "Text Analysis"
+    D --> D1[Speech-to-Text]
+    D1 --> D2[Sentiment (Naive Bayes)]
+    D1 --> D3[Negative Phrase Detection]
+    D1 --> D4[Filler Word Counter]
+    end
+    
+    C1 --> E[Weighted Scoring]
+    C3 --> E
+    
+    E --> F[Final Confidence Score]
+    F --> G[Dashboard Output]
+    D2 --> G
+    D3 --> G
+    
+    style F fill:#10B981,stroke:#333,stroke-width:2px,color:white
+    style A fill:#2563EB,stroke:#333,stroke-width:2px,color:white
+```
+
 ---
 
 ## 🚀 Key Features
@@ -31,7 +67,7 @@ It helps users understand *how* they speak (delivery) and *what* they say (conte
 ## 📸 Functionality Overview
 
 ### The Dashboard
-A clean, modern interface allows you to record audio directly or analyze existing files.
+Interface allows you to record audio directly or analyze existing files.
 _(Add a screenshot of the main dashboard here)_
 `![Main Dashboard](docs/images/dashboard-placeholder.png)`
 
