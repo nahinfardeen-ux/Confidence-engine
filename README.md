@@ -4,6 +4,8 @@
 
 It helps users understand *how* they speak (delivery) and *what* they say (content), offering actionable feedback to improve communication skills.
 
+> **⚠️ Note on Accuracy**: This project is currently in active development. The AI models are approximately **60% accurate** at this stage. We are continuously improving the dataset and training logic to enhance precision.
+
 ---
 
 ## 🚀 Key Features
