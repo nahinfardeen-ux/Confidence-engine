@@ -64,24 +64,6 @@ graph TD
 
 ---
 
-## 📸 Functionality Overview
-
-### The Dashboard
-Interface allows you to record audio directly or analyze existing files.
-_(Add a screenshot of the main dashboard here)_
-![Main Dashboard](docs/images/dashboard-placeholder.png)
-
-### Real-time Transcription & Highlighting
-See your speech transcribed with real-time feedback on your word choice.
-_(Add a screenshot of the transcript section here)_
-![Transcript Highlight](docs/images/transcript-placeholder.png)
-
-### Detailed Scoring Breakdown
-Understand exactly why you got your score with a granular breakdown of every metric.
-_(Add a screenshot of the "Detailed Scoring Logic" expander here)_
-![Score Breakdown](docs/images/breakdown-placeholder.png)
-
----
 
 ## 🛠️ Step-by-Step Setup Guide
 
